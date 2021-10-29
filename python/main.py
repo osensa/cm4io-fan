@@ -9,6 +9,7 @@ def get_speed(fan):
 
 def set_speed(fan):
     speed = int(input("enter speed in percentage 1-100: ").strip())
+    print(speed)
     fan.write_register('FAN_SETTING', int(speed/100*255))
 
 if __name__ == '__main__':
