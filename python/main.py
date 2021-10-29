@@ -10,7 +10,7 @@ def get_speed(fan):
 def set_speed(fan):
     speed = int(input("enter speed in percentage 1-100: ").strip())
     print(speed)
-    fan.write_register(register='FAN_SETTING', value=(speed/100*255))
+    fan.write_register(register='FAN_SETTING', value=int((speed/100*255)))
 
 if __name__ == '__main__':
     fan = emc2301.EMC2301(busnum=10)
