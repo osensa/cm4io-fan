@@ -14,7 +14,7 @@ def set_speed(fan):
 if __name__ == '__main__':
     fan = emc2301.EMC2301(busnum=10)
     cmd = None
-    if fan.self_test() != 0 :
+    if fan.self_test() == 0:
         while cmd != 0:
             cmd = int(input("""
             menu
@@ -29,9 +29,11 @@ if __name__ == '__main__':
             elif cmd == 1:
                 get_speed(fan)
             elif cmd == 2:
+                set_speed(fan)
             else:
                 print('invalid cmd={}'.format(cmd))
 
             print('================================')
-
+    else:
+        print('device not found')
 
