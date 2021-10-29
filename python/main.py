@@ -2,7 +2,7 @@
 from i2c_pkg.emc2301_pkg import emc2301
 
 def get_speed(fan):
-    speedRaw = fan.read_register('FAN_SETTING')
+    speedRaw = fan.read_register('FAN_SETTING')[0]
     speed = speedRaw/255*100
     rpm = fan.speed()[0]
     print(f'Speed Pecentage = {speed}, Speed RPM = {rpm}')
