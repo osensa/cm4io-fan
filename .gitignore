@@ -50,3 +50,7 @@ build/
 # debhelper
 debian/.debhelper
 
+# python
+python/.idea
+python/venv
+
