@@ -4,7 +4,7 @@ datestamp=`date -I`
 
 # version/name strings
 DRV_NAME="cm4io-fan"
-DRV_VERSION="0.1.1"
+DRV_VERSION="0.2.0"
 DRV_DIR="/usr/src/${DRV_NAME}-${DRV_VERSION}"
 
 # check kernel arch
@@ -34,7 +34,7 @@ echo -n "Update config.txt... "
 if (grep -q "^dtoverlay=${DRV_NAME}" /boot/config.txt); then
     echo "line already present, no change"
 else
-    sudo echo "dtoverlay=cm4io-fan,minrpm=500,maxrpm=2500" >> /boot/config.txt
+    sudo echo -e "dtparam=i2c_vc=on\ndtoverlay=cm4io-fan,minrpm=500,maxrpm=2500" >> /boot/config.txt
     echo "line added, edit to adjust rpm/temp settings."
 fi
 
